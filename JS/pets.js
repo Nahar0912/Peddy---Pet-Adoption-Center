@@ -14,44 +14,80 @@ const loadPets = () => {
     .catch((error) => console.log(error));
 };
 
-const removeActiveClass = () => {
-  const buttons = document.getElementsByClassName("category-btn");
-  console.log(buttons);
-  for (let btn of buttons) {
-    btn.classList.remove("active");
-  }
+
+//Create Display Categories
+const displayCategories = (categories) => {
+  const categoryContainer = document.getElementById("categories");
+  categories.forEach((item) => {
+    const buttonContainer = document.createElement("div");
+    buttonContainer.innerHTML = `
+      <button id="btn-${item.category}" class="btn category-btn btn-lg btn-wide bg-gray-100 text-gray-600" onclick="loadPetsByCategory('${item.category}')">
+        <img src="${item.category_icon}" alt=""><span class="font-bold">${item.category}</span>
+      </button>
+    `;
+    categoryContainer.append(buttonContainer);
+  });
 };
+
+
 // Fetch Pets Data By Category
 const loadPetsByCategory = (category) => {
-  console.log("hiiiii" );
   fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
     .then((res) => res.json())
     .then((data) => {
-      console.log(data);
-      //sobaike active class remove korao
-      // removeActiveClass();
-      //id er class k active korao
-      // const activeBtn = document.getElementById(`btn-${category}`);
-      // activeBtn.classList.add("active");
       displayPets(data.data);
+      removeActiveClass();
+      const activeBtn = document.getElementById(`btn-${category}`);
+      activeBtn.classList.add("bg-teal-100", "text-black", "border", "border-teal-300"); 
+      activeBtn.classList.remove("bg-gray-100", "text-gray-600"); 
     })
     .catch((error) => console.log(error));
 };
-  
-//Create Display Categories
-const displayCategories = (categories) => {
-    const categoryContainer = document.getElementById("categories");
-    categories.forEach((item) => {
-      console.log(item.category);
-      const buttonContainer = document.createElement("div");
-      buttonContainer.innerHTML = `
-        <button id="btn-${item.category}" class="btn category-btn btn-lg btn-wide" onclick="loadPetsByCategory('${item.category}')">
-        <img src="${item.category_icon}" alt=""><span class="font-bold">${item.category}</span>
-        </button>
-      `;
-      categoryContainer.append(buttonContainer);
-    });
+// REMOVE ACTIVE BUTTON 
+const removeActiveClass = () => {
+  const buttons = document.getElementsByClassName("category-btn");
+  for (let btn of buttons) {
+    btn.classList.remove("bg-teal-100", "text-black", "border", "border-teal-300");
+    btn.classList.add("bg-gray-100", "text-gray-600");
+  }
 };
+
+
+//<-------Deatails Show In the MODAL-------->
+const loadDetails = async (Id) => {
+  try {
+    console.log(Id);
+    const uri = `https://openapi.programming-hero.com/api/peddy/pet/${Id}`;
+    const res = await fetch(uri);
+    if (!res.ok) {
+      throw new Error(`Failed to fetch details for pet with ID: ${Id}`);
+    }
+    const data = await res.json();
+    displayDetailsOfPets(data.petData);
+  } catch (error) {
+    console.error("Error loading pet details:", error);
+  }
+};
+const displayDetailsOfPets = (petData) => {
+  const modal = document.getElementById("pet-modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+  document.getElementById("modal-image").src = petData.image;
+  document.getElementById("modal-name").innerText = petData.pet_name;
+  document.getElementById("modal-details").innerText = petData.pet_details;
+  document.getElementById("modal-price").innerText = `$ Price: ${petData.price}`;
+  document.getElementById("modal-breed").innerText = `Breed: ${petData.breed}`;
+  document.getElementById("modal-dob").innerText = `Date of Birth: ${petData.date_of_birth}`;
+  document.getElementById("modal-gender").innerText = `Gender: ${petData.gender}`;
+  document.getElementById("modal-vaccination").innerText = `Vaccination Status: ${petData.vaccinated_status}`;
+  document.getElementById("close-modal").addEventListener("click", () => {
+    const modal = document.getElementById("pet-modal");
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+  });
+};
+
+
 
 // Display Pets on Cards
 const displayPets = (pets) => {
@@ -93,7 +129,7 @@ const displayPets = (pets) => {
                     </svg>
                 </button>
             <button class="btn text-teal-600 font-bold">Adopt</button>
-            <button class="btn text-teal-600 font-bold">Detailes</button>
+            <button class="btn text-teal-600 font-bold" onclick="loadDetails(${pets.petId})">Details</button>
             </div>
         </div>
         </div>

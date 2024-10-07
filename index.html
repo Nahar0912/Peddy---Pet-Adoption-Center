@@ -59,12 +59,34 @@
             <div class="flex">
                 <div id="pets" class="grid-cols-3 gap-3">
                 </div>
-                <div>
+                <div class="">
                     
                 </div>
             </div>
         </section>
     </main>
+
+    <!-- Modal-->
+    <div id="pet-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+      <div class="bg-white p-6 rounded-lg w-11/12 md:w-1/2 max-w-xl max-h-[90vh] overflow-y-auto relative">
+        <div id="modal-content" class="flex flex-col gap-4">
+          <img id="modal-image" src="" alt="Pet Image" class="rounded-lg w-full h-64 object-cover">
+          <h2 id="modal-name" class="text-2xl font-bold"></h2>
+          <div class="grid grid-cols-2">
+            <p id="modal-breed" class="text-gray-600"></p>
+            <p id="modal-dob" class="text-gray-600"></p>
+            <p id="modal-gender" class="text-gray-600"></p>
+            <p id="modal-price" class="text-gray-600"></p>
+            <p id="modal-vaccination" class="text-gray-600"></p>
+          </div>
+          <h3 class="text-xl font-bold">Deatiles</h3>
+          <p id="modal-details" class="text-gray-700"></p>
+        </div>
+        <button id="close-modal" class="mt-4 w-full py-2 bg-gray-300 text-black font-bold rounded-lg hover:bg-gray-400">Close</button>
+      </div>
+    </div>
+
+
 
     <footer class="footer bg-black text-white p-20">
         <nav class="ml-20">
