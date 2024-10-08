@@ -13,8 +13,27 @@
             <div class="navbar bg-base-100">
                 <div class="navbar-start">
                   <div class="dropdown">
-                    <img src="./images/logo.webp" alt="">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-5 w-5"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M4 6h16M4 12h8m-8 6h16" />
+                      </svg>
+                    </div>
+                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                      <li><a>Home</a></li>
+                      <li><a>Shop</a></li>
+                      <li><a>Contact</a></li>
+                    </ul>
                   </div>
+                  <img src="./images/logo.webp" alt="">
                   <a class="btn btn-ghost text-xl font-bold">Peddy</a>
                 </div>
                 <div class="navbar-center hidden lg:flex">
@@ -31,6 +50,8 @@
                 </div>
               </div>
         </nav>
+
+        
         <!-- Banner -->
         <section class="text-center px-72">
             <h1 class="text-xl font-medium">Bringing Families Together ❤️‍🔥</h1><br>
@@ -49,18 +70,20 @@
             </div>
             <div id="categories" class="flex justify-between">
             </div>
-        </section><br>
+        </section>
         <!-- Best Deal For you -->
         <section>
-            <div class="flex justify-between items-center">
+            <div class="flex justify-between items-center mt-7 mb-2">
                 <h1 class="font-bold text-xl">Best Deal For You</h1>
                 <button class="btn bg-teal-800 text-white">Sort by Price</button>
-            </div>
-            <div class="flex">
-                <div id="pets" class="grid-cols-3 gap-3">
+            </div><br>
+            <div class="flex gap-2">
+                <div id="pets" class="grid grid-cols-3 gap-3">
                 </div>
-                <div class="">
-                    
+                <div id="likedPetsBox" class="w-1/3 p-5 border rounded-lg shadow-lg">
+                    <div id="likedPets" class="grid grid-cols-2 gap-3">
+                        <!-- Liked pet images will be appended here -->
+                    </div>
                 </div>
             </div>
         </section>
@@ -87,8 +110,7 @@
     </div>
 
 
-
-    <footer class="footer bg-black text-white p-20">
+    <footer class="footer bg-black text-white p-20 mt-5">
         <nav class="ml-20">
             <div class="flex gap-2 mb-4">
                 <img src="./images/logo.webp" alt="">
