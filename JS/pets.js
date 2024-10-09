@@ -216,7 +216,7 @@ const likedPet = (image) => {
   const likedPetsContainer = document.getElementById("likedPets");
   const likedPetItem = document.createElement("div");
   likedPetItem.classList.add("flex", "items-center");
-  likedPetItem.innerHTML = `<img src="${image}" alt="" class="w-28 h-28 rounded-md">`;
+  likedPetItem.innerHTML = `<img src="${image}" alt="" class="w-32 h-28 rounded-md">`;
 
   likedPetsContainer.append(likedPetItem);
 };
