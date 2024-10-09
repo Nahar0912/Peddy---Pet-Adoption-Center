@@ -15,7 +15,7 @@ const loadPets = () => {
 };
 
 
-//Create Display Categories
+//Create Display Categories BUTTON
 const displayCategories = (categories) => {
   const categoryContainer = document.getElementById("categories");
   categories.forEach((item) => {
@@ -75,7 +75,7 @@ const loadPetsByCategory = (category) => {
       displayPets(data.data);
       removeActiveClass();
       const activeBtn = document.getElementById(`btn-${category}`);
-      activeBtn.classList.add("bg-teal-100", "text-black", "border", "border-teal-300");
+      activeBtn.classList.add("bg-teal-100", "text-black", "border", "border-teal-300","rounded-full");
       activeBtn.classList.remove("bg-gray-100", "text-gray-600");
     })
     .catch((error) => {
@@ -88,7 +88,7 @@ const loadPetsByCategory = (category) => {
 const removeActiveClass = () => {
   const buttons = document.getElementsByClassName("category-btn");
   for (let btn of buttons) {
-    btn.classList.remove("bg-teal-100", "text-black", "border", "border-teal-300");
+    btn.classList.remove("bg-teal-100", "text-black", "border", "border-teal-300","rounded-full");
     btn.classList.add("bg-gray-100", "text-gray-600");
   }
 };
@@ -138,8 +138,8 @@ const displayPets = (pets) => {
   if (pets.length === 0) {
     petsContainer.classList.remove("grid");
     petsContainer.innerHTML = `
-      <div class="min-h-[300px] flex flex-col gap-5 justify-center items-center">
-        <img src="../images/error.webp" alt="No Content" /> 
+      <div class="min-h-[400px] flex flex-col justify-center items-center lg:ml-96">
+        <img src="../images/error.webp" alt="No Content" /><br>
         <h2 class="text-center text-xl font-bold"> No Content Here in this Category </h2> 
       </div>`;
     document.getElementById("likedPetsBox").classList.add("hidden");  
