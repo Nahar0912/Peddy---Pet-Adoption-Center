@@ -94,7 +94,7 @@ const removeActiveClass = () => {
 };
 
 
-//<-------Deatails In the MODAL-------->
+//<-------Deatails In the MODAL of CARD-------->
 const loadDetails = async (Id) => {
   try {
     console.log(Id);
@@ -130,7 +130,6 @@ const displayDetailsOfPets = (petData) => {
 
 
 
-// Display Pets on Cards----->
 const displayPets = (pets) => {
   const petsContainer = document.getElementById("pets");
   petsContainer.innerHTML = "";
@@ -143,26 +142,31 @@ const displayPets = (pets) => {
         <img src="../images/error.webp" alt="No Content" /> 
         <h2 class="text-center text-xl font-bold"> No Content Here in this Category </h2> 
       </div>`;
-    document.getElementById("likedPetsBox").classList.add("hidden");  // Hide liked box when no content found
+    document.getElementById("likedPetsBox").classList.add("hidden");  
   } else {
-    petsContainer.classList.add("grid");
-    document.getElementById("likedPetsBox").classList.remove("hidden");  // Show liked box
+    petsContainer.classList.add("grid", "grid-cols-1", "md:grid-cols-2", "lg:grid-cols-3", "gap-4");
+    document.getElementById("likedPetsBox").classList.remove("hidden"); 
   }
 
   pets.forEach((pet) => {
+    const breed = pet.breed || 'Not Found';
+    const birthDate = pet.date_of_birth || 'Not Found';
+    const gender = pet.gender || 'Not Found';
+    const price = pet.price !== null && pet.price !== undefined ? `$${pet.price}` : 'Not Found';
+
     const card = document.createElement("div");
-    card.classList = "card card-compact";
+    card.classList = "card card-compact w-full max-w-xs mx-auto";
     card.innerHTML = `
      <div class="card bg-base-100 border shadow-xl">
       <figure class="px-5 pt-10">
-          <img src=${pet.image} alt="Pet" class="rounded-xl" />
+          <img src="${pet.image}" alt="Pet" class="rounded-xl" />
       </figure>
       <div class="card-body">
           <h2 class="card-title">${pet.pet_name}</h2>
-          <p>Breed: ${pet.breed}</p>
-          <p>Birth: ${pet.date_of_birth}</p>
-          <p>Gender: ${pet.gender}</p>
-          <p>Price: ${pet.price}</p>
+          <p>Breed: ${breed}</p>
+          <p>Birth: ${birthDate}</p>
+          <p>Gender: ${gender}</p>
+          <p>Price: ${price}</p>
           <div class="card-actions flex justify-between">
               <button class="btn font-bold" onclick="likedPet('${pet.image}')">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
@@ -178,6 +182,8 @@ const displayPets = (pets) => {
     petsContainer.append(card);
   });
 };
+
+
 
 // Function to show the countdown modal and update the button text
 const adoptPet = (button) => {
@@ -199,7 +205,7 @@ const adoptPet = (button) => {
 };
 
 
-// Display pets on LIKE box
+// Display pets on LIKE box----->
 const likedPets = [];
 const likedPet = (image) => {
   if (likedPets.includes(image)) {
@@ -209,8 +215,8 @@ const likedPet = (image) => {
 
   const likedPetsContainer = document.getElementById("likedPets");
   const likedPetItem = document.createElement("div");
-  likedPetItem.classList.add("flex", "items-center", "gap-2");
-  likedPetItem.innerHTML = `<img src="${image}" alt="" class="w-20 h-20 rounded-md">`;
+  likedPetItem.classList.add("flex", "items-center");
+  likedPetItem.innerHTML = `<img src="${image}" alt="" class="w-32 h-28 rounded-md">`;
 
   likedPetsContainer.append(likedPetItem);
 };

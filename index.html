@@ -8,128 +8,118 @@
     <title>Peddy</title>
 </head>
 <body>
-    <header class="px-20">
-        <nav class="py-5">
-            <div class="navbar bg-base-100">
-                <div class="navbar-start">
+    <header class="px-4 md:px-20">
+      <nav class="py-5">
+          <div class="navbar bg-base-100">
+              <div class="navbar-start">
                   <div class="dropdown">
-                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        class="h-5 w-5"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M4 6h16M4 12h8m-8 6h16" />
-                      </svg>
-                    </div>
-                    <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                          </svg>
+                      </div>
+                      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                          <li><a>Home</a></li>
+                          <li><a>Shop</a></li>
+                          <li><a>Contact</a></li>
+                      </ul>
+                  </div>
+                  <img src="./images/logo.webp" alt="" class="h-10">
+                  <a class="btn btn-ghost text-xl font-bold">Peddy</a>
+              </div>
+              <div class="navbar-center hidden lg:flex">
+                  <ul class="menu menu-horizontal px-1">
                       <li><a>Home</a></li>
                       <li><a>Shop</a></li>
                       <li><a>Contact</a></li>
-                    </ul>
-                  </div>
-                  <img src="./images/logo.webp" alt="">
-                  <a class="btn btn-ghost text-xl font-bold">Peddy</a>
-                </div>
-                <div class="navbar-center hidden lg:flex">
-                  <ul class="menu menu-horizontal px-1">
-                    <li><a>Home</a></li>
-                    <li><a>Shop</a></li>
-                    <li><a>Contact</a></li>
                   </ul>
-                </div>
-                <div class="navbar-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                      </svg> 
-                </div>
               </div>
-        </nav>
-
-        
-        <!-- Banner -->
-        <section class="text-center px-72">
-            <h1 class="text-xl font-medium">Bringing Families Together ❤️‍🔥</h1><br>
-            <h1 class="font-bold text-5xl">Your Path to Adoption Starts Here</h1><br>
-            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p><br>
-            <button class="btn bg-teal-800 text-white"><a href="#adopt">View More</a></button><br>
-            <img class="py-10" src="./images//pet.webp" alt="">
-        </section>
-    </header>
-    <main class="px-20">
-        <!-- Adopt Your Best Friend -->
-        <section id="adopt">
-            <div class="text-center">
-                <h1 class="font-bold text-3xl">Adopt Your Best Friend</h1><br>
-                <p class="px-72 pb-10">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
-            </div>
-            <div id="categories" class="flex justify-between">
-            </div>
-        </section>
-
-        <!-- Best Deal For You -->
-        <section>
-          <div class="flex justify-between items-center mt-7 mb-2">
-              <h1 class="font-bold text-xl">Best Deal For You</h1>
-              <button id="sort-price-btn" class="btn bg-teal-800 text-white">Sort by Price</button>
-          </div>
-          <br>
-          <div class="flex gap-2">
-              <div id="pets" class="grid grid-cols-3 gap-3"></div>
-              <div id="likedPetsBox" class="w-1/3 p-4 border rounded-lg shadow-lg">
-                  <div id="likedPets" class="grid grid-cols-2 gap-3"></div>
+              <div class="navbar-end">
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="h-6 w-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                  </svg>
               </div>
           </div>
-        </section>
+      </nav>
 
-        <!-- Spinner -->
-        <div id="spinner" class="hidden justify-center items-center">
-          <span class="loading loading-bars loading-lg"></span>
+      <!-- Banner -->
+      <section class="text-center px-4 md:px-72">
+          <h1 class="text-xl font-medium">Bringing Families Together ❤️‍🔥</h1><br>
+          <h1 class="font-bold text-2xl md:text-5xl">Your Path to Adoption Starts Here</h1><br>
+          <p class="text-sm md:text-base">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p><br>
+          <button class="btn bg-teal-800 text-white"><a href="#adopt">View More</a></button><br>
+          <img class="py-10 max-w-full h-auto" src="./images/pet.webp" alt="">
+      </section>
+  </header>
+    <main class="px-20 md:px-20">
+      <!-- Adopt Your Best Friend -->
+      <section id="adopt">
+        <div class="text-center">
+            <h1 class="font-bold text-3xl">Adopt Your Best Friend</h1><br>
+            <p class="px-4 md:px-72 pb-10">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a.</p>
         </div>
-
-
-        <!-- Modal for cards-->
-        <div id="pet-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
-          <div class="bg-white p-6 rounded-lg w-11/12 md:w-1/2 max-w-xl max-h-[90vh] overflow-y-auto relative">
-            <div id="modal-content" class="flex flex-col gap-4">
-              <img id="modal-image" src="" alt="Pet Image" class="rounded-lg w-full h-64 object-cover">
-              <h2 id="modal-name" class="text-2xl font-bold"></h2>
-              <div class="grid grid-cols-2">
-                <p id="modal-breed" class="text-gray-600"></p>
-                <p id="modal-dob" class="text-gray-600"></p>
-                <p id="modal-gender" class="text-gray-600"></p>
-                <p id="modal-price" class="text-gray-600"></p>
-                <p id="modal-vaccination" class="text-gray-600"></p>
-              </div>
-              <h3 class="text-xl font-bold">Deatiles</h3>
-              <p id="modal-details" class="text-gray-700"></p>
-            </div>
-            <button id="close-modal" class="mt-4 w-full py-2 bg-gray-300 text-black font-bold rounded-lg hover:bg-gray-400">Close</button>
-          </div>
+        <div id="categories" class="flex flex-wrap justify-between">
         </div>
+      </section>
 
-        <!-- Countdown Modal -->
-        <dialog id="my_modal_2" class="modal">
-          <div class="modal-box">
-            <img class="mx-auto" src="./images/Congrates.png" alt="">
-            <h3 class="text-3xl font-bold text-center">Congrates</h3>
-            <p class="py-4 text-center">Adoption process is started for your pet</p>
-            <h1 id="countdown" class="text-5xl font-bold text-center">3</h1>
+      <!-- Best Deal For You -->
+      <section>
+        <div class="flex flex-col md:flex-row justify-between items-center mt-7 mb-2">
+            <h1 class="font-bold text-xl">Best Deal For You</h1>
+            <button id="sort-price-btn" class="btn bg-teal-800 text-white mt-4 md:mt-0 w-full md:w-auto">Sort by Price</button>
+        </div>
+        <br>
+        <div class="flex flex-col md:flex-row gap-5">
+            <div id="pets" class="grid grid-cols-1 md:grid-cols-3 gap-5"></div>
+            <div id="likedPetsBox" class="w-full md:w-1/4 p-5 border rounded-lg shadow-lg">
+                <div id="likedPets" class="grid grid-cols-2 gap-5"></div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Spinner -->
+      <div id="spinner" class="hidden justify-center items-center">
+        <span class="loading loading-bars loading-lg"></span>
+      </div>
+
+
+      <!-- Modal for cards-->
+      <div id="pet-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden justify-center items-center z-50">
+        <div class="bg-white p-6 rounded-lg w-11/12 md:w-1/2 max-w-xl max-h-[90vh] overflow-y-auto relative">
+          <div id="modal-content" class="flex flex-col gap-4">
+            <img id="modal-image" src="" alt="Pet Image" class="rounded-lg w-full h-64 object-cover">
+            <h2 id="modal-name" class="text-2xl font-bold"></h2>
+            <div class="grid grid-cols-2">
+              <p id="modal-breed" class="text-gray-600"></p>
+              <p id="modal-dob" class="text-gray-600"></p>
+              <p id="modal-gender" class="text-gray-600"></p>
+              <p id="modal-price" class="text-gray-600"></p>
+              <p id="modal-vaccination" class="text-gray-600"></p>
+            </div>
+            <h3 class="text-xl font-bold">Deatiles</h3>
+            <p id="modal-details" class="text-gray-700"></p>
           </div>
-          <form method="dialog" class="modal-backdrop">
-            <button>Close</button>
-          </form>
-        </dialog>
+          <button id="close-modal" class="mt-4 w-full py-2 bg-gray-300 text-black font-bold rounded-lg hover:bg-gray-400">Close</button>
+        </div>
+      </div>
+
+      <!-- Countdown Modal -->
+      <dialog id="my_modal_2" class="modal">
+        <div class="modal-box">
+          <img class="mx-auto" src="./images/Congrates.png" alt="">
+          <h3 class="text-3xl font-bold text-center">Congrates</h3>
+          <p class="py-4 text-center">Adoption process is started for your pet</p>
+          <h1 id="countdown" class="text-5xl font-bold text-center">3</h1>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button>Close</button>
+        </form>
+      </dialog>
 
     </main>
 
     <footer class="footer bg-black text-white p-20 mt-5">
-        <nav class="ml-20">
+        <nav class="lg:ml-20">
             <div class="flex gap-2 mb-4">
                 <img src="./images/logo.webp" alt="">
                 <h4 class="font-bold text-2xl">Paddy</h6>
