@@ -30,40 +30,6 @@ const displayCategories = (categories) => {
 };
 
 
-// Spinner Toggle Function
-const toggleSpinner = (show) => {
-  const spinner = document.getElementById("spinner");
-  const petsContainer = document.getElementById("pets");
-  const likedPetsBox = document.getElementById("likedPetsBox");
-  
-  if (show) {
-    spinner.classList.remove("hidden");
-    spinner.classList.add("flex");
-    petsContainer.classList.add("hidden");
-    likedPetsBox.classList.add("hidden");  
-  } else {
-    spinner.classList.add("hidden");
-    petsContainer.classList.remove("hidden");
-    likedPetsBox.classList.remove("hidden"); 
-  }
-};
-
-// Sort by Price button in descending order
-document.getElementById("sort-price-btn").addEventListener("click", () => {
-  toggleSpinner(true); 
-  fetch("https://openapi.programming-hero.com/api/peddy/pets")
-    .then((res) => res.json())
-    .then((data) => {
-      const sortedPets = data.pets.sort((a, b) => b.price - a.price); 
-      toggleSpinner(false); 
-      displayPets(sortedPets); 
-    })
-    .catch((error) => {
-      console.log(error);
-      toggleSpinner(false); 
-    });
-});
-
 // Fetch Pets Data By Category
 const loadPetsByCategory = (category) => {
   toggleSpinner(true); 
@@ -82,15 +48,6 @@ const loadPetsByCategory = (category) => {
       toggleSpinner(false); 
       console.error(error);
     });
-};
-
-// REMOVE ACTIVE BUTTON 
-const removeActiveClass = () => {
-  const buttons = document.getElementsByClassName("category-btn");
-  for (let btn of buttons) {
-    btn.classList.remove("bg-teal-100", "text-black", "border", "border-teal-300","rounded-full");
-    btn.classList.add("bg-gray-100", "text-gray-600");
-  }
 };
 
 
@@ -129,7 +86,7 @@ const displayDetailsOfPets = (petData) => {
 };
 
 
-
+// Display Pets on cards----->
 const displayPets = (pets) => {
   const petsContainer = document.getElementById("pets");
   petsContainer.innerHTML = "";
@@ -138,7 +95,7 @@ const displayPets = (pets) => {
   if (pets.length === 0) {
     petsContainer.classList.remove("grid");
     petsContainer.innerHTML = `
-      <div class="min-h-[400px] flex flex-col justify-center items-center lg:ml-96">
+      <div class="min-h-[500px] flex flex-col justify-center items-center lg:ml-96">
         <img src="../images/error.webp" alt="No Content" /><br>
         <h2 class="text-center text-xl font-bold"> No Content Here in this Category </h2> 
       </div>`;
@@ -182,28 +139,6 @@ const displayPets = (pets) => {
     petsContainer.append(card);
   });
 };
-
-
-
-// Function to show the countdown modal and update the button text
-const adoptPet = (button) => {
-  const modal = document.getElementById("my_modal_2");
-  const countdownDisplay = document.getElementById("countdown");
-  modal.showModal();
-
-  let countdown = 3;
-  const countdownInterval = setInterval(() => {
-    countdownDisplay.innerText = countdown; 
-    countdown--;
-    if (countdown < 0) {
-      clearInterval(countdownInterval); 
-      button.innerText = "Adopted";
-      button.classList = "btn btn-disabled"
-      modal.close(); 
-    }
-  }, 1000);
-};
-
 
 // Display pets on LIKE box----->
 const likedPets = [];
