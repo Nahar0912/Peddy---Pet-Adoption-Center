@@ -1,4 +1,4 @@
-//fetch the categories data
+//Fetch the categories data
 const loadPetsByCategories = () => {
     fetch("https://openapi.programming-hero.com/api/peddy/categories")
       .then((res) => res.json())
@@ -6,7 +6,7 @@ const loadPetsByCategories = () => {
       .catch((error) => console.log(error));
 };
 
-// Fetch All Pets Data 
+//Fetch All Pets Data 
 const loadPets = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((res) => res.json())
@@ -14,24 +14,8 @@ const loadPets = () => {
     .catch((error) => console.log(error));
 };
 
-
-//Create Display Categories BUTTON
-const displayCategories = (categories) => {
-  const categoryContainer = document.getElementById("categories");
-  categories.forEach((item) => {
-    const buttonContainer = document.createElement("div");
-    buttonContainer.innerHTML = `
-      <button id="btn-${item.category}" class="btn category-btn btn-lg btn-wide bg-gray-100 text-gray-600" onclick="loadPetsByCategory('${item.category}')">
-        <img src="${item.category_icon}" alt=""><span class="font-bold">${item.category}</span>
-      </button>
-    `;
-    categoryContainer.append(buttonContainer);
-  });
-};
-
-
-// Fetch Pets Data By Category
-const loadPetsByCategory = (category) => {
+//Fetch Pets Data By Category
+const ClickPetsByCategory = (category) => {
   toggleSpinner(true); 
 
   fetch(`https://openapi.programming-hero.com/api/peddy/category/${category}`)
@@ -50,8 +34,22 @@ const loadPetsByCategory = (category) => {
     });
 };
 
+//<-----------Display Categories BUTTON---------->
+const displayCategories = (categories) => {
+  const categoryContainer = document.getElementById("categories");
+  categories.forEach((item) => {
+    const buttonContainer = document.createElement("div");
+    buttonContainer.innerHTML = `
+      <button id="btn-${item.category}" class="btn category-btn btn-lg btn-wide bg-gray-100 text-gray-600" onclick="ClickPetsByCategory('${item.category}')">
+        <img src="${item.category_icon}" alt=""><span class="font-bold">${item.category}</span>
+      </button>
+    `;
+    categoryContainer.append(buttonContainer);
+  });
+};
 
-//<-------Deatails In the MODAL of CARD-------->
+
+//<-------Display pet details In the MODAL of CARD-------->
 const loadDetails = async (Id) => {
   try {
     console.log(Id);
@@ -86,7 +84,7 @@ const displayDetailsOfPets = (petData) => {
 };
 
 
-// Display Pets on cards----->
+//<-----------Display Pets on cards------------>
 const displayPets = (pets) => {
   const petsContainer = document.getElementById("pets");
   petsContainer.innerHTML = "";
@@ -140,7 +138,7 @@ const displayPets = (pets) => {
   });
 };
 
-// Display pets on LIKE box----->
+//<--------------Display pets on LIKE box------------>
 const likedPets = [];
 const likedPet = (image) => {
   if (likedPets.includes(image)) {
