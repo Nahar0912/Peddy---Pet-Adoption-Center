@@ -1,4 +1,4 @@
-# **Peddy Pet Adoption Platform**
+# **Peddy - Pet Adoption Platform**
 
 ## Short Description:
 Peddy is a web-based pet adoption platform that allows users to browse through various categories of pets, view detailed information, sort pets by price, like their favorite pets, and even adopt them! It’s a user-friendly and responsive application with an interactive UI, offering users a seamless experience in finding their perfect pet.
@@ -17,6 +17,4 @@ Peddy is a web-based pet adoption platform that allows users to browse through v
 4. Async/Await: Used for handling asynchronous API requests and making the code easier to read.
 5. Default Parameters: Ensures fallback values if certain parameters are undefined.
 
-
-### **Github Link: https://github.com/programming-hero-web-course2/b10a6-pet-adoption-Nahar0912**
 ### **Live Link: https://peddy-adoption-center.netlify.app/**
